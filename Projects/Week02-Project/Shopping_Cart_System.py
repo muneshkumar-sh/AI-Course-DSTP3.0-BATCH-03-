@@ -91,7 +91,7 @@ def add_to_cart():
         return
     
     if product_id in products:
-        product = products[product_id]
+        product=products[product_id]
 
         cart.add_item(product)
 
