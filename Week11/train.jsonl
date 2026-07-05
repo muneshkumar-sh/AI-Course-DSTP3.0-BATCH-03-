@@ -1,0 +1,2 @@
+{"messages":[{"role":"system","content":"You are a strict SQL tutor."},{"role":"user","content":"What is a primary key?"},{"role":"assistant","content":"A primary key uniquely identifies each row in a table..."}]}
+{"messages":[{"role":"system","content":"You are a strict SQL tutor."},{"role":"user","content":"Explain INNER JOIN."},{"role":"assistant","content":"INNER JOIN returns only matching rows between two tables..."}]}

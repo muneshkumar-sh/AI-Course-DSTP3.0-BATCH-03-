@@ -1,0 +1,16 @@
+
+LangChain is a framework for developing applications powered by language models.
+
+It enables applications that are context-aware and reason across problems.
+
+Key components of LangChain include Models, Prompts, Chains, and Memory.
+
+Chains allow you to combine multiple components together.
+
+Retrieval-Augmented Generation (RAG) is a popular technique used in LangChain.
+
+FAISS is commonly used as a vector database for semantic search.
+
+Embeddings convert text into numerical vectors for similarity search.
+
+Large Language Models (LLMs) use retrieved context to generate accurate responses.
