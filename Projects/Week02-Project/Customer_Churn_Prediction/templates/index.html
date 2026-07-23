@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Churn Prediction</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Customer Churn Prediction</h1>
+
+    <form action="/predict" method="POST">
+
+        <!-- ========================= -->
+        <!-- Personal Information -->
+        <!-- ========================= -->
+
+        <div class="form-group">
+
+            <label>Gender</label>
+
+            <select name="gender">
+
+                <option>Male</option>
+                <option>Female</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Senior Citizen</label>
+
+            <select name="SeniorCitizen">
+
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Partner</label>
+
+            <select name="Partner">
+
+                <option>Yes</option>
+                <option>No</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Dependents</label>
+
+            <select name="Dependents">
+
+                <option>Yes</option>
+                <option>No</option>
+
+            </select>
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- Service Information -->
+        <!-- ========================= -->
+
+        <div class="form-group">
+
+            <label>Tenure (Months)</label>
+
+            <input type="number"
+                   name="tenure"
+                   required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Phone Service</label>
+
+            <select name="PhoneService">
+
+                <option>Yes</option>
+                <option>No</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Multiple Lines</label>
+
+            <select name="MultipleLines">
+
+                <option>No</option>
+                <option>Yes</option>
+                <option>No phone service</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Internet Service</label>
+
+            <select name="InternetService">
+
+                <option>DSL</option>
+                <option>Fiber optic</option>
+                <option>No</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Online Security</label>
+
+            <select name="OnlineSecurity">
+
+                <option>Yes</option>
+                <option>No</option>
+                <option>No internet service</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Online Backup</label>
+
+            <select name="OnlineBackup">
+
+                <option>Yes</option>
+                <option>No</option>
+                <option>No internet service</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Device Protection</label>
+
+            <select name="DeviceProtection">
+
+                <option>Yes</option>
+                <option>No</option>
+                <option>No internet service</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Tech Support</label>
+
+            <select name="TechSupport">
+
+                <option>Yes</option>
+                <option>No</option>
+                <option>No internet service</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Streaming TV</label>
+
+            <select name="StreamingTV">
+
+                <option>Yes</option>
+                <option>No</option>
+                <option>No internet service</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Streaming Movies</label>
+
+            <select name="StreamingMovies">
+
+                <option>Yes</option>
+                <option>No</option>
+                <option>No internet service</option>
+
+            </select>
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- Billing -->
+        <!-- ========================= -->
+
+        <div class="form-group">
+
+            <label>Contract</label>
+
+            <select name="Contract">
+
+                <option>Month-to-month</option>
+                <option>One year</option>
+                <option>Two year</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Paperless Billing</label>
+
+            <select name="PaperlessBilling">
+
+                <option>Yes</option>
+                <option>No</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Payment Method</label>
+
+            <select name="PaymentMethod">
+
+                <option>Electronic check</option>
+                <option>Mailed check</option>
+                <option>Bank transfer (automatic)</option>
+                <option>Credit card (automatic)</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Monthly Charges</label>
+
+            <input
+                type="number"
+                step="0.01"
+                name="MonthlyCharges"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Total Charges</label>
+
+            <input
+                type="number"
+                step="0.01"
+                name="TotalCharges"
+                required>
+
+        </div>
+
+        <button type="submit">
+
+            Predict Customer Churn
+
+        </button>
+
+    </form>
+
+    {% if prediction %}
+
+    <div class="result">
+
+        <h2>{{ prediction }}</h2>
+
+        <h3>Confidence : {{ confidence }} %</h3>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>
